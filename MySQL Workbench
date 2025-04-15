@@ -1,0 +1,47 @@
+#MySQL Workbench
+Creation of the DB and Table
+-- Create the database
+CREATE DATABASE cyber_radar;
+
+-- Use the newly created database
+USE cyber_radar;
+
+-- Create the users table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    age INT,
+    location VARCHAR(50),
+    occupation VARCHAR(50),
+    education VARCHAR(50),
+    time_spent_online FLOAT,
+    social_media_usage FLOAT,
+    device_used VARCHAR(50),
+    has_antivirus BOOLEAN DEFAULT FALSE
+);
+
+-- Optional: Insert a sample user for "testing"
+INSERT INTO users (
+    username, 
+    password, 
+    age, 
+    location, 
+    occupation, 
+    education, 
+    time_spent_online, 
+    social_media_usage, 
+    device_used, 
+    has_antivirus
+) VALUES (
+    'testuser',
+    '$2b$12$3X7tXz9b8j5k2pLqWvZ8qO9bY6mN4oP8rTqWvU9kJ2hL5nM7xQ', -- Hashed password for 'password123'
+    25,
+    'USA',
+    'Student',
+    'Bachelor''s',
+    6.5,
+    3.0,
+    'Laptop',
+    TRUE
+);
